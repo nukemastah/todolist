@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SRW OG Themed To-Do List</title>
+    <title>To-Do List</title>
     <link href="https://fonts.googleapis.com/css?family=Orbitron:700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -192,29 +192,25 @@
         <div class="calendar">
             <h2 id="calendar-month"></h2>
             <table id="calendar-table">
-                <!-- Calendar will be rendered here -->
             </table>
         </div>
         <div class="main-content">
             <form class="add-task" id="add-task-form" autocomplete="off">
-                <input type="text" id="task-title" placeholder="Enter new mission..." required>
-                <input type="date" id="task-date" required>
-                <button type="submit">Add Task</button>
+            <input type="text" id="task-title" placeholder="Enter new mission..." required>
+            <input type="date" id="task-date" required>
+            <button type="submit">Add Task</button>
             </form>
             <div class="tasks-section">
-                <div class="tasks-list" id="unfinished-tasks">
-                    <h3>Unfinished Missions</h3>
-                    <!-- Unfinished tasks will appear here -->
-                </div>
-                <div class="tasks-list" id="finished-tasks">
-                    <h3>Completed Missions</h3>
-                    <!-- Finished tasks will appear here -->
-                </div>
+            <div class="tasks-list" id="unfinished-tasks">
+                <h3>Unfinished Missions</h3>
+            </div>
+            <div class="tasks-list" id="finished-tasks">
+                <h3>Completed Missions</h3>
+            </div>
             </div>
         </div>
     </div>
     <script>
-        // Calendar rendering
         function renderCalendar() {
             const today = new Date();
             const monthNames = [
@@ -251,7 +247,6 @@
             document.getElementById('calendar-table').innerHTML = table;
         }
 
-        // Task management
         let tasks = JSON.parse(localStorage.getItem('srwog_tasks') || '[]');
 
         function saveTasks() {
@@ -325,10 +320,8 @@
             this.reset();
         });
 
-        // Set default date to today
         document.getElementById('task-date').valueAsDate = new Date();
 
-        // Initial render
         renderCalendar();
         renderTasks();
     </script>
